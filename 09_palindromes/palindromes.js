@@ -6,6 +6,7 @@ const palindromes = function (str) {
   str = str.toLowerCase();
   // from: https://stackoverflow.com/questions/4328500/how-can-i-strip-all-punctuation-from-a-string-in-javascript-using-regex
   str = str.replace(/[^\w\s\']|_/g, "").replace(/\s+/g, " ");
+  str = str.replace(' ', '');
   console.log(str);
 
   // Base cases
