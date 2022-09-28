@@ -1,12 +1,15 @@
 const removeFromArray = function(arr, ...delItems) {
   // for each item to delete,
-  for (const item in delItems) {
+  for (const item of delItems) {
     // traverse the entire array and
     for (let i = 0; i < arr.length; i++) {
       // remove all instances of the item
-      if (arr[i] == item) arr.splice(i, 1);
+      if (arr[i] === item) {
+        arr.splice(i, 1);
+      }
     }
-  
+  }
+  return arr;
 };
 
 /*
