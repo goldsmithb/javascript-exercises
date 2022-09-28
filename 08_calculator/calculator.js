@@ -3,15 +3,23 @@ const add = function(a, b) {
 };
 
 const subtract = function(a, b) {
-	return a - b;
+  return a - b;
 };
 
-const sum = function(a,b) {
-	return a + b;
+const sum = function(arr) {
+	let sum = 0;
+  for (const item of arr) {
+    sum += item;
+  }
+  return sum;
 };
 
-const multiply = function(a,b) {
-  return a * b;
+const multiply = function(arr) {
+	let res = 1;
+  for (const item of arr) {
+    res *= item;
+  }
+  return res;
 };
 
 const power = function(a,b) {
