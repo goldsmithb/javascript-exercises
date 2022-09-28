@@ -27,7 +27,11 @@ const power = function(a,b) {
 };
 
 const factorial = function(a) {
-	return a;
+  let res = 1;
+	for (let i = 0; i < a; i++) {
+    res *= a - i;
+  }
+  return res;
 };
 
 // Do not edit below this line
