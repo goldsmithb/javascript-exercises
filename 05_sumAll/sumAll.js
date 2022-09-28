@@ -1,6 +1,9 @@
 /* return the sum of all integers from s to e */
 const sumAll = function(a, b) {
-  if (a < 0 || b < 0) return "ERROR";
+  if (a < 0 || b < 0 || 
+      typeof a !== "number" || 
+      typeof b !== "number") 
+        return "ERROR";
   // set start and end for range
   let start, end;
   if (b > a) start = a, end = b;
