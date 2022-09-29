@@ -10,8 +10,33 @@
  *        returns 'B'
 
 */
+
+// problem: ignore non-letters
+// problem: shift in a circle ('z' shifted 2 should be 'b')
 const caesar = function(message, shift) {
-  
+  function isLowerCase(char) {
+    if (char ===  char.toLowerCase()
+        && char !== char.toUpperCase())
+        return true;
+  }
+
+  let alphabetLower = "abcdefghijklmnopqrstuvwxyz";
+  let alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let res = "";
+  let index;
+
+  for (char of message) {
+    if (isLowerCase(char)) {
+      index = alphabetLower.indexOf(char);
+      res += alphabetLower[(index % 27) + shift];
+    }
+    else {
+      index = alphabetUpper.indexOf(char);
+      res += alphabetUpper[(index % 27) + shift];
+    }
+  }
+
+  return res;
 };
 
 // Do not edit below this line
