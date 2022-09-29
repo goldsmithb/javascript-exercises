@@ -2,12 +2,10 @@
 // Recursive solution
 const palindromes = function (str) {
   // clean input - normalize caps, remove any punctuation
-  console.log(str);
   str = str.toLowerCase();
   // from: https://stackoverflow.com/questions/4328500/how-can-i-strip-all-punctuation-from-a-string-in-javascript-using-regex
   str = str.replace(/[^\w\s\']|_/g, "").replace(/\s+/g, " ");
   str = str.replace(' ', '');
-  console.log(str);
 
   // Base cases
   if (str.length === 2) {
