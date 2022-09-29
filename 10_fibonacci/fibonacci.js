@@ -6,7 +6,6 @@ preceding numbers. The simplest is the series
 
 const fibonacci = function(mem) {
   if (mem < 0) return "OOPS"
-  
 
   let cur = prev1 = prev2 = 1;
   let temp;
