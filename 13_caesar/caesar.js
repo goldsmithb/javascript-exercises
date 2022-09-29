@@ -12,27 +12,40 @@
 */
 
 // problem: ignore non-letters
-// problem: shift in a circle ('z' shifted 2 should be 'b')
 const caesar = function(message, shift) {
   function isLowerCase(char) {
     if (char ===  char.toLowerCase()
         && char !== char.toUpperCase())
         return true;
   }
+  // CharCode range of letters: 65-90, 97-122
+  function isLetter(char) {
+    let code = char.charCodeAt();
+    if ((code >= 65 && code <= 90)
+        || (code >= 97 && code <= 122))
+        return true;
+    else return false;
+  }
 
   let alphabetLower = "abcdefghijklmnopqrstuvwxyz";
   let alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let res = "";
+  let alphabet;
   let index;
 
   for (char of message) {
-    if (isLowerCase(char)) {
-      index = alphabetLower.indexOf(char);
-      res += alphabetLower[(index % 27) + shift];
+    if (!isLetter(char)) {
+      // skip non-letters
+      res += char;
+      continue;
     }
     else {
-      index = alphabetUpper.indexOf(char);
-      res += alphabetUpper[(index % 27) + shift];
+      alphabet = isLowerCase(char) ? alphabetLower : alphabetUpper;
+      index = alphabet.indexOf(char);
+      index = (index + shift < 0)
+              ? 26 + (index + shift)
+              : (index + shift) % 26;
+      res += alphabet[index];
     }
   }
 
